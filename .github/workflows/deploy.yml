@@ -1,4 +1,4 @@
-name: 🚀 Déploiement du site Dour Maroc
+name: Déploiement Windows GitHub Pages
 
 on:
   push:
@@ -6,33 +6,31 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-and-test:
+    runs-on: windows-latest
 
     steps:
-      - name: 📥 Récupérer le code
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
-      - name: ⚙️ Configurer Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: 📦 Installer les dépendances (si besoin)
+      - name: ⚙️ Configurer Git
         run: |
-          if [ -f package.json ]; then
-            npm install
-          else
-            echo "Aucune dépendance Node à installer"
-          fi
+          git config user.name "lrhazouli-safwa"
+          git config user.email "2005071100217@cmc.ma"
 
-      - name: 🧱 Construire le projet
+      - name: 🧪 Test (simple check)
         run: |
-          mkdir -p dist
-          cp -r * dist/ || true
+          echo "Test du projet..."
+          dir ./html
 
+      - name: 🏗️ Build (préparation)
+        run: |
+          echo "Build du projet (PHP/CSS/JS)..."
+          mkdir build
+          xcopy /E /I html\* build\
+          
       - name: 🚀 Déployer sur GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v7
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./build
