@@ -1,0 +1,36 @@
+name: Déploiement Windows GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurer Git
+        run: |
+          git config user.name "lrhazouli-safwa"
+          git config user.email "2005071100217@cmc.ma"
+
+      - name: 🧪 Test (simple check)
+        run: |
+          echo "Test du projet..."
+          dir ./html
+
+      - name: 🏗️ Build (préparation)
+        run: |
+          echo "Build du projet (PHP/CSS/JS)..."
+          mkdir build
+          xcopy /E /I html\* build\
+
+      - name: 🚀 Déployer sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
