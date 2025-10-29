@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dour Maroc Voyages - Contact</title>
+<link rel="stylesheet" href="../css/global.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    .contact-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Dour Maroc</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="vols.html">Vols</a></li>
+          <li class="nav-item"><a class="nav-link" href="forfaits.html">Forfaits</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="offres-speciales.html">Offres</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.php">Connexion Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- En-tête -->
+  <header class="py-5 text-center bg-light">
+    <div class="container">
+      <h1 class="fw-bold">Contactez nos conseillers voyages</h1>
+      <p class="lead">Notre équipe est disponible 7j/7 pour répondre à vos questions et vous aider à organiser votre voyage de rêve.</p>
+    </div>
+  </header>
+
+  <!-- Section Contact -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Formulaire -->
+        <div class="col-md-6 mb-4">
+          <h3 class="fw-bold mb-3">Demande de devis personnalisé</h3>
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nom complet</label>
+              <input type="text" class="form-control" id="name" placeholder="Votre nom et prénom" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Adresse email</label>
+              <input type="email" class="form-control" id="email" placeholder="votremail@example.com" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Téléphone</label>
+              <input type="tel" class="form-control" id="phone" placeholder="Votre numéro de téléphone" required>
+            </div>
+            <div class="mb-3">
+              <label for="destination" class="form-label">Destination souhaitée</label>
+              <select class="form-select" id="destination">
+                <option value="">Sélectionnez une destination</option>
+                <option value="marrakech">Marrakech</option>
+                <option value="agadir">Agadir</option>
+                <option value="chefchaouen">Chefchaouen</option>
+                <option value="sahara">Désert du Sahara</option>
+                <option value="autre">Autre destination</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="date" class="form-label">Dates de voyage</label>
+              <input type="text" class="form-control" id="date" placeholder="Dates souhaitées">
+            </div>
+            <div class="mb-3">
+              <label for="travelers" class="form-label">Nombre de voyageurs</label>
+              <input type="number" class="form-control" id="travelers" min="1" value="1">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Vos souhaits et demandes particulières</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Décrivez-nous votre voyage idéal, vos centres d'intérêt, votre budget..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Demander un devis personnalisé</button>
+          </form>
+        </div>
+
+        <!-- Infos & Image -->
+        <div class="col-md-6">
+          <h3 class="fw-bold mb-3">Nos horaires et coordonnées</h3>
+          <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Adresse :</strong> 123 Avenue des Voyageurs, Tanger, Maroc</p>
+          <p><i class="fas fa-phone text-primary me-2"></i> <strong>Téléphone :</strong> +212 5 39 94 21 67</p>
+          <p><i class="fas fa-phone-alt text-primary me-2"></i> <strong>Urgences :</strong> +212 6 12 34 56 78</p>
+          <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Email :</strong> contact@dourmaroc-voyages.ma</p>
+          <p><i class="far fa-clock text-primary me-2"></i> <strong>Horaires :</strong> Lundi au Samedi, 9h-19h</p>
+          <div class="mt-4">
+          <h5 class="fw-bold">Besoin d'aide immédiate ?</h5>
+          <p>Appelez notre service client 24/7 :<br><strong>+212 5 39 94 21 69</strong></p>
+          <div class="mt-3">
+            <a href="#" class="btn btn-outline-primary btn-sm me-2"><i class="fab fa-whatsapp me-1"></i> WhatsApp</a>
+            <a href="#" class="btn btn-outline-primary btn-sm me-2"><i class="fas fa-phone-alt me-1"></i> Appel</a>
+          </div>
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80" alt="Conseiller voyage" class="contact-img mt-4">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4 mt-5">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <h5>Dour Maroc Voyages</h5>
+        <p class="mb-0">Votre partenaire de confiance pour des voyages inoubliables.</p>
+      </div>
+      <div class="text-end">
+        <p class="mb-0 small">© Safwa – 2025</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

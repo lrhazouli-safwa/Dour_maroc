@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dour Maroc Voyages - Accueil</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05');
+      background-size: cover;
+      background-position: center;
+      padding: 130px 0;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    .category-img {
+      width: 100%;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .artisan-img {
+      width: 140px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Dour Maroc</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="vols.html">Vols</a></li>
+          <li class="nav-item"><a class="nav-link" href="forfaits.html">Forfaits</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="offres-speciales.html">Offres</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.php">Connexion Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Voyagez avec Confiance, Explorez avec Passion</h1>
+      <p class="lead">Découvrez les plus belles destinations du Maroc et au-delà avec nos offres exclusives.</p>
+      <a href="destinations.html" class="btn btn-primary btn-lg mt-3">Découvrir nos destinations</a>
+    </div>
+  </header>
+
+  <!-- Catégories -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Découvrez nos Services</h2>
+      <div class="row text-center">
+        <div class="col-6 col-md-2 mb-4">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=300&q=80" class="category-img" alt="Vols">
+          <p class="mt-2">Vols</p>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+          <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=300&q=80" class="category-img" alt="Hôtels">
+          <p class="mt-2">Hôtels</p>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=300&q=80" class="category-img" alt="Circuits">
+          <p class="mt-2">Circuits</p>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=300&q=80" class="category-img" alt="Activités">
+          <p class="mt-2">Activités</p>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+          <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=300&q=80" class="category-img" alt="Croisières">
+          <p class="mt-2">Croisières</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations en vedette -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Destinations Populaires</h2>
+      <div class="row g-4">
+        <!-- Destination 1 -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1517821366741-7f603cfec9be?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Marrakech">
+            <div class="card-body">
+              <h5 class="card-title">Marrakech</h5>
+              <p class="card-text">Découvrez la ville ocre et ses trésors cachés. Séjours à partir de 250€.</p>
+              <a href="destinations.html" class="btn btn-outline-primary btn-sm">Voir les offres</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Destination 2 -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd543720c?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Agadir">
+            <div class="card-body">
+              <h5 class="card-title">Agadir</h5>
+              <p class="card-text">Plages de sable fin et soleil toute l'année. Vol + Hôtel à partir de 350€.</p>
+              <a href="destinations.html" class="btn btn-outline-primary btn-sm">Voir les offres</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Destination 3 -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1564502332260-9cd8020bad4a?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Chefchaouen">
+            <div class="card-body">
+              <h5 class="card-title">Chefchaouen</h5>
+              <p class="card-text">La perle bleue du Rif. Circuits guidés à partir de 180€.</p>
+              <a href="destinations.html" class="btn btn-outline-primary btn-sm">Découvrir</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Destination 4 -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f06?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Désert du Sahara">
+            <div class="card-body">
+              <h5 class="card-title">Désert du Sahara</h5>
+              <p class="card-text">Nuit en bivouac sous les étoiles. À partir de 150€/pers.</p>
+              <a href="destinations.html" class="btn btn-outline-primary btn-sm">Réserver</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conseiller en voyages -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Notre Expert Voyages</h2>
+      <div class="card text-center p-4 shadow-sm">
+      
+        <h4 class="fw-bold">safwa lrhazouli </h4>
+        <p>Notre expert en voyages avec plus de 10 ans d'expérience pour vous conseiller sur les meilleures destinations et offres.</p>
+        <a href="contact.html" class="btn btn-primary btn-sm">Contacter notre expert</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-5 bg-light text-center">
+    <div class="container">
+      <h4 class="mb-3">Restez connecté(e) avec Dour Maroc</h4>
+      <form class="d-flex justify-content-center gap-2">
+        <input type="email" class="form-control w-25" placeholder="Votre e-mail">
+        <button class="btn btn-primary">S'abonner</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <div>
+        <h5>Dour Maroc Voyages</h5>
+        <p class="mb-0">Voyagez en toute sérénité avec des experts à votre écoute.</p>
+      </div>
+      <div class="text-end">
+        <p class="mb-0 small">Projet réalisé par <strong>Safwa</strong> – 2025</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html> 

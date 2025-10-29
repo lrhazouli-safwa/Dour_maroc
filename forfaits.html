@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forfaits Voyages - Dour Maroc</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    .package-card {
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      margin-bottom: 30px;
+    }
+    .package-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .package-header {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    .package-header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .package-card:hover .package-header img {
+      transform: scale(1.1);
+    }
+    .package-price {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #0d6efd;
+    }
+    .package-duration {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+    }
+    .package-body {
+      padding: 20px;
+    }
+    .package-title {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .package-location {
+      color: #6c757d;
+      margin-bottom: 15px;
+    }
+    .package-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
+    .package-features li {
+      margin-bottom: 8px;
+      color: #555;
+    }
+    .package-features i {
+      color: #0d6efd;
+      margin-right: 8px;
+      width: 20px;
+      text-align: center;
+    }
+    .filter-section {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Dour Maroc</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="vols.html">Vols</a></li>
+          <li class="nav-item"><a class="nav-link active" href="forfaits.html">Forfaits</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="offres-speciales.html">Offres</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.php">Connexion Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-primary text-white py-5">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Nos Forfaits Voyages</h1>
+      <p class="lead">Découvrez nos offres exceptionnelles pour des vacances inoubliables</p>
+    </div>
+  </header>
+
+  <!-- Search & Filter -->
+  <section class="py-5">
+    <div class="container">
+      <div class="filter-section">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-3">
+              <label class="form-label">Destination</label>
+              <select class="form-select">
+                <option selected>Toutes les destinations</option>
+                <option>Marrakech</option>
+                <option>Agadir</option>
+                <option>Chefchaouen</option>
+                <option>Désert du Sahara</option>
+                <option>Fès</option>
+                <option>Casablanca</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label">Durée</label>
+              <select class="form-select">
+                <option selected>Toutes durées</option>
+                <option>Week-end</option>
+                <option>3-5 jours</option>
+                <option>1 semaine</option>
+                <option>2 semaines</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Budget par personne</label>
+              <select class="form-select">
+                <option selected>Tous budgets</option>
+                <option>Moins de 2 000 DH</option>
+                <option>2 000 - 5 000 DH</option>
+                <option>5 000 - 10 000 DH</option>
+                <option>Plus de 10 000 DH</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label">Type de voyage</label>
+              <select class="form-select">
+                <option selected>Tous types</option>
+                <option>Plage</option>
+                <option>Montagne</option>
+                <option>Désert</option>
+                <option>Culturel</option>
+                <option>Aventure</option>
+              </select>
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+              <button type="submit" class="btn btn-primary w-100">Filtrer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages Grid -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Nos Meilleurs Forfaits</h2>
+        <p class="lead">Découvrez nos offres exclusives à travers le Maroc</p>
+      </div>
+      
+      <div class="row">
+        <!-- Package 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="package-card bg-white">
+            <div class="package-header">
+              <img src="https://images.unsplash.com/photo-1517825738778-7de25b1b0bdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Marrakech">
+              <div class="package-price">3 499 DH</div>
+              <div class="package-duration">4 Jours / 3 Nuits</div>
+            </div>
+            <div class="package-body">
+              <h3 class="package-title">Échappée Marrakchie</h3>
+              <p class="package-location"><i class="fas fa-map-marker-alt"></i> Marrakech, Maroc</p>
+              <ul class="package-features">
+                <li><i class="fas fa-hotel"></i> Hôtel 4* en demi-pension</li>
+                <li><i class="fas fa-utensils"></i> Dîner spectacle Chez Ali</li>
+                <li><i class="fas fa-bus"></i> Excursion aux cascades d'Ouzoud</li>
+                <li><i class="fas fa-shopping-bag"></i> Temps libre en médina</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary w-100">Voir l'offre</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="package-card bg-white">
+            <div class="package-header">
+              <img src="https://images.unsplash.com/photo-1582201946623-0b3f4fcc51ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Désert">
+              <div class="package-price">5 999 DH</div>
+              <div class="package-duration">3 Jours / 2 Nuits</div>
+            </div>
+            <div class="package-body">
+              <h3 class="package-title">Nuit sous les étoiles</h3>
+              <p class="package-location"><i class="fas fa-map-marker-alt"></i> Désert du Sahara, Merzouga</p>
+              <ul class="package-features">
+                <li><i class="fas fa-moon"></i> Nuit en bivouac de luxe</li>
+                <li><i class="fas fa-camera"></i> Coucher de soleil sur les dunes</li>
+                <li><i class="fas fa-camel"></i> Balade à dos de dromadaire</li>
+                <li><i class="fas fa-music"></i> Soirée musicale berbère</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary w-100">Voir l'offre</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="package-card bg-white">
+            <div class="package-header">
+              <img src="https://images.unsplash.com/photo-1518541733319-0b9d2adf57f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Agadir">
+              <div class="package-price">4 299 DH</div>
+              <div class="package-duration">5 Jours / 4 Nuits</div>
+            </div>
+            <div class="package-body">
+              <h3 class="package-title">Détente à Agadir</h3>
+              <p class="package-location"><i class="fas fa-map-marker-alt"></i> Agadir, Maroc</p>
+              <ul class="package-features">
+                <li><i class="fas fa-umbrella-beach"></i> Hôtel 5* en bord de plage</li>
+                <li><i class="fas fa-wine-glass"></i> Formule tout inclus</li>
+                <li><i class="fas fa-spa"></i> Accès illimité au spa</li>
+                <li><i class="fas fa-ship"></i> Croisière avec repas à bord</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary w-100">Voir l'offre</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 4 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="package-card bg-white">
+            <div class="package-header">
+              <img src="https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixlib=rb-4.0.3&ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Chefchaouen">
+              <div class="package-price">2 899 DH</div>
+              <div class="package-duration">3 Jours / 2 Nuits</div>
+            </div>
+            <div class="package-body">
+              <h3 class="package-title">Week-end Bleu</h3>
+              <p class="package-location"><i class="fas fa-map-marker-alt"></i> Chefchaouen, Maroc</p>
+              <ul class="package-features">
+                <li><i class="fas fa-hotel"></i> Riad traditionnel en centre-ville</li>
+                <li><i class="fas fa-hiking"></i> Randonnée dans le Rif</li>
+                <li><i class="fas fa-camera"></i> Visite photo des ruelles bleues</li>
+                <li><i class="fas fa-shopping-bag"></i> Marché artisanal</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary w-100">Voir l'offre</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 5 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="package-card bg-white">
+            <div class="package-header">
+              <img src="https://images.unsplash.com/photo-1596541223130-20e8c0fb0c0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Atlas">
+              <div class="package-price">3 799 DH</div>
+              <div class="package-duration">2 Jours / 1 Nuit</div>
+            </div>
+            <div class="package-body">
+              <h3 class="package-title">Aventure dans l'Atlas</h3>
+              <p class="package-location"><i class="fas fa-map-marker-alt"></i> Haut Atlas, Maroc</p>
+              <ul class="package-features">
+                <li><i class="fas fa-mountain"></i> Randonnée au Toubkal</li>
+                <li><i class="fas fa-home"></i> Nuit en refuge de montagne</li>
+                <li><i class="fas fa-utensils"></i> Repas berbères traditionnels</li>
+                <li><i class="fas fa-water"></i> Cascades d'Ourika</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary w-100">Voir l'offre</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 6 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="package-card bg-white">
+            <div class="package-header">
+              <img src="https://images.unsplash.com/photo-1582201946623-0b3f4fcc51ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Essaouira">
+              <div class="package-price">4 599 DH</div>
+              <div class="package-duration">4 Jours / 3 Nuits</div>
+            </div>
+            <div class="package-body">
+              <h3 class="package-title">Échappée Océane</h3>
+              <p class="package-location"><i class="fas fa-map-marker-alt"></i> Essaouira, Maroc</p>
+              <ul class="package-features">
+                <li><i class="fas fa-umbrella-beach"></i> Hôtel face à la plage</li>
+                <li><i class="fas fa-wind"></i> Cours de kitesurf inclus</li>
+                <li><i class="fas fa-fish"></i> Dégustation de fruits de mer</li>
+                <li><i class="fas fa-music"></i> Soirée Gnawa</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary w-100">Voir l'offre</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="#" class="btn btn-primary btn-lg">Voir plus d'offres</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Pourquoi choisir nos forfaits ?</h2>
+        <p class="lead">Des expériences uniques conçues pour vous</p>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-3 mb-4">
+          <div class="p-4">
+            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; margin-bottom: 1rem;">
+              <i class="fas fa-hand-holding-usd fa-2x text-primary"></i>
+            </div>
+            <h4>Meilleur Prix Garanti</h4>
+            <p class="text-muted">Les tarifs les plus compétitifs avec une qualité exceptionnelle</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="p-4">
+            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; margin-bottom: 1rem;">
+              <i class="fas fa-headset fa-2x text-primary"></i>
+            </div>
+            <h4>Assistance 24/7</h4>
+            <p class="text-muted">Une équipe à votre écoute avant, pendant et après votre voyage</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="p-4">
+            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; margin-bottom: 1rem;">
+              <i class="fas fa-shield-alt fa-2x text-primary"></i>
+            </div>
+            <h4>Voyages Sécurisés</h4>
+            <p class="text-muted">Tous nos partenaires sont soigneusement sélectionnés</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="p-4">
+            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; margin-bottom: 1rem;">
+              <i class="fas fa-gem fa-2x text-primary"></i>
+            </div>
+            <h4>Expériences Authentiques</h4>
+            <p class="text-muted">Découvrez le vrai Maroc avec des locaux passionnés</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-5 bg-primary text-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h3 class="fw-bold">Recevez nos offres exclusives</h3>
+          <p class="mb-0">Inscrivez-vous à notre newsletter pour ne rien manquer de nos meilleures offres</p>
+        </div>
+        <div class="col-md-6">
+          <form class="d-flex">
+            <input type="email" class="form-control me-2" placeholder="Votre adresse email">
+            <button type="submit" class="btn btn-light text-primary">S'inscrire</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Dour Maroc Voyages</h5>
+          <p>Votre partenaire de confiance pour des voyages inoubliables au Maroc et dans le monde.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Liens rapides</h5>
+          <ul class="list-unstyled">
+            <li><a href="about.html" class="text-white">À propos de nous</a></li>
+            <li><a href="contact.html" class="text-white">Contact</a></li>
+            <li><a href="destinations.html" class="text-white">Destinations</a></li>
+            <li><a href="offres-speciales.html" class="text-white">Offres spéciales</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact</h5>
+          <p><i class="fas fa-phone me-2"></i> +212 5 39 94 21 67</p>
+          <p><i class="fas fa-envelope me-2"></i> contact@dourmaroc-voyages.ma</p>
+          <div class="mt-3">
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 Dour Maroc Voyages. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

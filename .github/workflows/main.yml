@@ -1,0 +1,34 @@
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:                # Nom du job
+    runs-on: ubuntu-latest  # Machine virtuelle
+    steps:                # Étapes du job
+      - name: Cloner le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Installer les dépendances
+        run: npm install
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build          # Ce job s'exécute après "build"
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test           # Ce job s'exécute après "test"
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Déploiement de l'application"

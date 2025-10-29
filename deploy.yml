@@ -1,0 +1,40 @@
+name: 🚀 Déploiement du site Dour Maroc
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: 📥 Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: 📦 Installer les dépendances (si besoin)
+        shell: pwsh
+        run: |
+          if (Test-Path package.json) {
+            npm install
+          } else {
+            Write-Host "Aucune dépendance Node à installer"
+          }
+
+      - name: 🧱 Construire le projet
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dist
+          Copy-Item -Path * -Destination dist -Recurse -Force
+
+      - name: 🚀 Déployer sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
