@@ -18,28 +18,25 @@ jobs:
           git config user.name "lrhazouli-safwa"
           git config user.email "2005071100217@cmc.ma"
 
-      - name: 🧪 Test du projet
+      - name: 🧪 Vérification du dossier html
         shell: powershell
         run: |
-          Write-Host "Vérification du dossier html..."
-          if (Test-Path -Path "./html") {
-              Write-Host "Dossier html trouvé !"
-              Get-ChildItem ./html
-          } else {
-              Write-Error "Dossier html manquant !"
-              exit 1
+          if (!(Test-Path -Path "./html")) {
+            Write-Error "Dossier html manquant !"
+            exit 1
           }
+          Write-Host "Dossier html trouvé !"
+          Get-ChildItem ./html
 
       - name: 🏗️ Build du projet (simulé)
         shell: powershell
         run: |
           Write-Host "Build du projet PHP/CSS/JS..."
-          # Ici, tu peux ajouter des étapes de compilation si nécessaire
 
       - name: 🚀 Déploiement sur GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./html
-          force_orphan: true
-          keep_files: false
+          force_orphan: true       # crée une branche vide si nécessaire
+          keep_files: false        # supprime les fichiers anciens pour éviter conflits
