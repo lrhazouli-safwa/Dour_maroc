@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Réservez vos vols - Dour Maroc Voyages</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    .search-box {
+      background-color: #f8f9fa;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .flight-card {
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: transform 0.3s;
+    }
+    .flight-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Dour Maroc</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link active" href="vols.html">Vols</a></li>
+          <li class="nav-item"><a class="nav-link" href="forfaits.html">Forfaits</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="offres-speciales.html">Offres</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.php">Connexion Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-primary text-white py-5">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Réservez votre vol au meilleur prix</h1>
+      <p class="lead">Trouvez et comparez les vols des meilleures compagnies aériennes</p>
+    </div>
+  </header>
+
+  <!-- Search Form -->
+  <section class="py-5">
+    <div class="container">
+      <div class="search-box">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-3">
+              <label class="form-label">Ville de départ</label>
+              <input type="text" class="form-control" placeholder="Ex: Casablanca">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Ville d'arrivée</label>
+              <input type="text" class="form-control" placeholder="Ex: Paris">
+            </div>
+            <div class="col-md-2">
+              <label class="form-label">Date d'aller</label>
+              <input type="date" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <label class="form-label">Date de retour</label>
+              <input type="date" class="form-control">
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+              <button type="submit" class="btn btn-primary w-100">Rechercher</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flight Listings -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4">Vols disponibles</h2>
+      
+      <!-- Flight 1 -->
+      <div class="flight-card bg-white">
+        <div class="row align-items-center">
+          <div class="col-md-2 text-center">
+            <img src="https://via.placeholder.com/80" alt="Royal Air Maroc" class="img-fluid">
+            <p class="mb-0 small">Royal Air Maroc</p>
+          </div>
+          <div class="col-md-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h4 class="mb-0">CMN</h4>
+                <p class="mb-0">14:30</p>
+                <p class="small text-muted mb-0">Casablanca</p>
+              </div>
+              <div class="text-center">
+                <div class="border-bottom w-50 mx-auto mb-1"></div>
+                <span class="badge bg-light text-dark">2h 30m</span>
+                <div class="border-top w-50 mx-auto mt-1"></div>
+              </div>
+              <div class="text-end">
+                <h4 class="mb-0">CDG</h4>
+                <p class="mb-0">18:00</p>
+                <p class="small text-muted mb-0">Paris CDG</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <p class="mb-1">Classe Économique</p>
+            <p class="mb-1">Sans escale</p>
+            <p class="mb-0 small text-success">Place disponible</p>
+          </div>
+          <div class="col-md-2 text-center">
+            <h3 class="text-primary">1 850 DH</h3>
+            <p class="small">Aller simple par personne</p>
+          </div>
+          <div class="col-md-2 text-center">
+            <a href="#" class="btn btn-primary">Réserver</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flight 2 -->
+      <div class="flight-card bg-white">
+        <div class="row align-items-center">
+          <div class="col-md-2 text-center">
+            <img src="https://via.placeholder.com/80" alt="Air France" class="img-fluid">
+            <p class="mb-0 small">Air France</p>
+          </div>
+          <div class="col-md-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h4 class="mb-0">RAK</h4>
+                <p class="mb-0">08:15</p>
+                <p class="small text-muted mb-0">Marrakech</p>
+              </div>
+              <div class="text-center">
+                <div class="border-bottom w-50 mx-auto mb-1"></div>
+                <span class="badge bg-light text-dark">3h 15m</span>
+                <div class="border-top w-50 mx-auto mt-1"></div>
+              </div>
+              <div class="text-end">
+                <h4 class="mb-0">ORY</h4>
+                <p class="mb-0">11:30</p>
+                <p class="small text-muted mb-0">Paris Orly</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <p class="mb-1">Classe Affaires</p>
+            <p class="mb-1">Sans escale</p>
+            <p class="mb-0 small text-success">Place disponible</p>
+          </div>
+          <div class="col-md-2 text-center">
+            <h3 class="text-primary">3 200 DH</h3>
+            <p class="small">Aller simple par personne</p>
+          </div>
+          <div class="col-md-2 text-center">
+            <a href="#" class="btn btn-primary">Réserver</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flight 3 -->
+      <div class="flight-card bg-white">
+        <div class="row align-items-center">
+          <div class="col-md-2 text-center">
+            <img src="https://via.placeholder.com/80" alt="Air Arabia" class="img-fluid">
+            <p class="mb-0 small">Air Arabia</p>
+          </div>
+          <div class="col-md-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h4 class="mb-0">TNG</h4>
+                <p class="mb-0">16:45</p>
+                <p class="small text-muted mb-0">Tanger</p>
+              </div>
+              <div class="text-center">
+                <div class="border-bottom w-50 mx-auto mb-1"></div>
+                <span class="badge bg-light text-dark">2h 00m</span>
+                <div class="border-top w-50 mx-auto mt-1"></div>
+              </div>
+              <div class="text-end">
+                <h4 class="mb-0">MAD</h4>
+                <p class="mb-0">18:45</p>
+                <p class="small text-muted mb-0">Madrid</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <p class="mb-1">Classe Économique</p>
+            <p class="mb-1">Sans escale</p>
+            <p class="mb-0 small text-success">Dernières places</p>
+          </div>
+          <div class="col-md-2 text-center">
+            <h3 class="text-primary">1 250 DH</h3>
+            <p class="small">Aller simple par personne</p>
+          </div>
+          <div class="col-md-2 text-center">
+            <a href="#" class="btn btn-primary">Réserver</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Pourquoi réserver avec nous ?</h2>
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="p-4">
+            <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+            <h4>Paiement sécurisé</h4>
+            <p>Transactions 100% sécurisées avec cryptage SSL</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="p-4">
+            <i class="fas fa-headset fa-3x text-primary mb-3"></i>
+            <h4>Service client 24/7</h4>
+            <p>Une équipe à votre écoute à tout moment</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="p-4">
+            <i class="fas fa-tag fa-3x text-primary mb-3"></i>
+            <h4>Meilleur prix garanti</h4>
+            <p>Les tarifs les plus compétitifs du marché</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Dour Maroc Voyages</h5>
+          <p>Votre partenaire de confiance pour des voyages inoubliables au Maroc et dans le monde.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Liens rapides</h5>
+          <ul class="list-unstyled">
+            <li><a href="about.html" class="text-white">À propos de nous</a></li>
+            <li><a href="contact.html" class="text-white">Contact</a></li>
+            <li><a href="destinations.html" class="text-white">Destinations</a></li>
+            <li><a href="offres-speciales.html" class="text-white">Offres spéciales</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact</h5>
+          <p><i class="fas fa-phone me-2"></i> +212 5 39 94 21 67</p>
+          <p><i class="fas fa-envelope me-2"></i> contact@dourmaroc-voyages.ma</p>
+          <div class="mt-3">
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 Dour Maroc Voyages. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

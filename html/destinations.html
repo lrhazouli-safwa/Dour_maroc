@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinations - Dour Maroc Voyages</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    .filter-section {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .destination-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-bottom: 25px;
+      height: 100%;
+    }
+    .destination-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .destination-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .destination-tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 15px;
+    }
+    .price-tag {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #0d6efd;
+    }
+    .rating {
+      color: #ffc107;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Dour Maroc</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="vols.html">Vols</a></li>
+          <li class="nav-item"><a class="nav-link" href="forfaits.html">Forfaits</a></li>
+          <li class="nav-item"><a class="nav-link active" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.php">Connexion Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-primary text-white py-5">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Nos Destinations</h1>
+      <p class="lead">Découvrez les joyaux du Maroc et au-delà</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Filters -->
+        <div class="col-lg-3">
+          <div class="filter-section">
+            <h5 class="mb-4">Filtres</h5>
+            
+            <div class="mb-4">
+              <label class="form-label fw-bold">Type de destination</label>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="all-types" checked>
+                <label class="form-check-label" for="all-types">Tous les types</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="imperial-cities">
+                <label class="form-check-label" for="imperial-cities">Villes impériales</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="beach">
+                <label class="form-check-label" for="beach">Plages</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="mountain">
+                <label class="form-check-label" for="mountain">Montagnes</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="desert">
+                <label class="form-check-label" for="desert">Désert</label>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-bold">Budget par jour</label>
+              <div class="d-flex align-items-center">
+                <input type="number" class="form-control me-2" placeholder="Min">
+                <span>-</span>
+                <input type="number" class="form-control ms-2" placeholder="Max">
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-bold">Activités</label>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="culture">
+                <label class="form-check-label" for="culture">Culture</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="adventure">
+                <label class="form-check-label" for="adventure">Aventure</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="relaxation">
+                <label class="form-check-label" for="relaxation">Détente</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="gastronomy">
+                <label class="form-check-label" for="gastronomy">Gastronomie</label>
+              </div>
+            </div>
+
+            <button class="btn btn-primary w-100">Appliquer les filtres</button>
+          </div>
+        </div>
+
+        <!-- Destinations Grid -->
+        <div class="col-lg-9">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3>Nos destinations populaires</h3>
+            <div class="d-flex align-items-center">
+              <label class="me-2 mb-0">Trier par :</label>
+              <select class="form-select form-select-sm" style="width: auto;">
+                <option>Populaires</option>
+                <option>Prix croissant</option>
+                <option>Prix décroissant</option>
+                <option>Meilleures notes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+      
+            <!-- Marrakech -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card destination-card h-100">
+                <img src="https://images.unsplash.com/photo-1517825738778-7de25b1b0bdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top destination-img" alt="Marrakech">
+                <div class="destination-tag">Ville impériale</div>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title mb-1">Marrakech</h5>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <span>4.8</span>
+                    </div>
+                  </div>
+                  <p class="card-text text-muted small">La ville ocre, entre traditions et modernité</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="price-tag">À partir de 350 DH</span>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Découvrir</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chefchaouen -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card destination-card h-100">
+                <img src="https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top destination-img" alt="Chefchaouen">
+                <div class="destination-tag">Ville bleue</div>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title mb-1">Chefchaouen</h5>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <span>4.7</span>
+                    </div>
+                  </div>
+                  <p class="card-text text-muted small">La perle bleue nichée dans les montagnes du Rif</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="price-tag">À partir de 280 DH</span>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Découvrir</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Merzouga -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card destination-card h-100">
+                <img src="https://images.unsplash.com/photo-1582201946623-0b3f4fcc51ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top destination-img" alt="Merzouga">
+                <div class="destination-tag">Désert</div>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title mb-1">Merzouga</h5>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <span>4.9</span>
+                    </div>
+                  </div>
+                  <p class="card-text text-muted small">Les majestueuses dunes de l'erg Chebbi</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="price-tag">À partir de 420 DH</span>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Découvrir</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agadir -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card destination-card h-100">
+                <img src="https://images.unsplash.com/photo-1518541733319-0b9d2adf57f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top destination-img" alt="Agadir">
+                <div class="destination-tag">Plage</div>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title mb-1">Agadir</h5>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <span>4.5</span>
+                    </div>
+                  </div>
+                  <p class="card-text text-muted small">Station balnéaire moderne au bord de l'Atlantique</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="price-tag">À partir de 390 DH</span>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Découvrir</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fès -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card destination-card h-100">
+                <img src="https://images.unsplash.com/photo-1552733407-5d5c46c0bb9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top destination-img" alt="Fès">
+                <div class="destination-tag">Ville impériale</div>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title mb-1">Fès</h5>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <span>4.6</span>
+                    </div>
+                  </div>
+                  <p class="card-text text-muted small">La plus ancienne des villes impériales et capitale culturelle</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="price-tag">À partir de 320 DH</span>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Découvrir</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Essaouira -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card destination-card h-100">
+                <img src="https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top destination-img" alt="Essaouira">
+                <div class="destination-tag">Plage</div>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title mb-1">Essaouira</h5>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <span>4.5</span>
+                    </div>
+                  </div>
+                  <p class="card-text text-muted small">La cité des alizés et de la culture gnawa</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="price-tag">À partir de 380 DH</span>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Découvrir</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dakhla -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card destination-card h-100">
+                <img src="https://images.unsplash.com/photo-1582201946623-0b3f4fcc51ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top destination-img" alt="Dakhla">
+                <div class="destination-tag">Kitesurf</div>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title mb-1">Dakhla</h5>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <span>4.8</span>
+                    </div>
+                  </div>
+                  <p class="card-text text-muted small">Paradis des amateurs de sports nautiques et de nature sauvage</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="price-tag">À partir de 450 DH</span>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Découvrir</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <nav aria-label="Page navigation" class="mt-5">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Précédent</a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Suivant</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+          </div>
+        </div>
+
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Vous ne trouvez pas votre destination idéale ?</h2>
+    <p class="lead mb-4">Notre équipe d'experts est là pour créer un voyage sur mesure rien que pour vous.</p>
+    <a href="contact.html" class="btn btn-primary btn-lg">Demander un devis personnalisé</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 text-center text-md-start">
+        <p class="mb-0">&copy; 2023 Dour Maroc Voyages. Tous droits réservés.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Filter functionality for the new catalog style
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get all filter checkboxes
+    const typeCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+    const destinationCards = document.querySelectorAll('.destination-card');
+    
+    // Add event listeners to all checkboxes
+    typeCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', filterDestinations);
+    });
+    
+    function filterDestinations() {
+      const selectedTypes = [];
+      
+      // Get all checked checkboxes
+      document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+        selectedTypes.push(checkbox.id);
+      });
+      
+      // If no checkboxes are checked or 'all-types' is checked, show all
+      if (selectedTypes.length === 0 || selectedTypes.includes('all-types')) {
+        destinationCards.forEach(card => {
+          card.closest('.col-md-6').style.display = 'block';
+        });
+        return;
+      }
+      
+      // Filter cards based on selected types
+      destinationCards.forEach(card => {
+        const tag = card.querySelector('.destination-tag').textContent.trim().toLowerCase();
+        const cardType = getTypeFromTag(tag);
+        
+        if (selectedTypes.includes(cardType)) {
+          card.closest('.col-md-6').style.display = 'block';
+        } else {
+          card.closest('.col-md-6').style.display = 'none';
+        }
+      });
+    }
+    
+    function getTypeFromTag(tag) {
+      // Map tag text to checkbox IDs
+      const tagMap = {
+        'ville impériale': 'imperial-cities',
+        'ville bleue': 'imperial-cities',
+        'plage': 'beach',
+        'désert': 'desert',
+        'kitesurf': 'adventure'
+      };
+      
+      return tagMap[tag.toLowerCase()] || '';
+    }
+  });
+</script>
+</body>
+</html>

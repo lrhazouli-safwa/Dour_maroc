@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dour Maroc - Forfaits de Voyage</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    .package-card {
+      transition: transform 0.3s;
+      margin-bottom: 30px;
+      height: 100%;
+    }
+    .package-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .package-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .price-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Dour Maroc</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="vols.html">Vols</a></li>
+          <li class="nav-item"><a class="nav-link active" href="forfaits.html">Forfaits</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="offres-speciales.html">Offres Spéciales</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-primary text-white py-5">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Nos Forfaits Exclusifs</h1>
+      <p class="lead">Découvrez nos offres spéciales pour des vacances inoubliables</p>
+    </div>
+  </header>
+
+  <!-- Search Filters -->
+  <section class="py-4 bg-light">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-md-3">
+          <select class="form-select">
+            <option selected>Destination</option>
+            <option>Marrakech</option>
+            <option>Agadir</option>
+            <option>Fès</option>
+            <option>Chefchaouen</option>
+            <option>Merzouga</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <input type="date" class="form-control" placeholder="Date de départ">
+        </div>
+        <div class="col-md-2">
+          <select class="form-select">
+            <option selected>Durée</option>
+            <option>3-5 jours</option>
+            <option>1 semaine</option>
+            <option>10 jours</option>
+            <option>2 semaines</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select">
+            <option selected>Budget</option>
+            <option>Moins de 3000 DH</option>
+            <option>3000 - 6000 DH</option>
+            <option>6000 - 10000 DH</option>
+            <option>Plus de 10000 DH</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary w-100">Rechercher</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages Grid -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Nos Meilleures Offres</h2>
+      
+      <div class="row">
+        <!-- Package 1 -->
+        <div class="col-md-4">
+          <div class="card package-card">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="package-img" alt="Marrakech">
+              <div class="price-tag">À partir de 2500 DH</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Marrakech Enchantée</h5>
+              <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>4 jours / 3 nuits</p>
+              <p class="card-text">Découvrez la ville rouge avec visite des jardins Majorelle, la place Jemaa el-Fna et un dîner spectacle en plein air.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star-half-alt text-warning"></i>
+                  <span class="ms-1">(24 avis)</span>
+                </div>
+                <a href="#" class="btn btn-sm btn-outline-primary">Voir l'offre</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="col-md-4">
+          <div class="card package-card">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1518545001021-4a1ddfc06f2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="package-img" alt="Désert">
+              <div class="price-tag">À partir de 3500 DH</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Aventure dans le Désert</h5>
+              <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>3 jours / 2 nuits</p>
+              <p class="card-text">Nuit sous les toutes dans le désert de Merzouga avec balade en dromadaire au coucher du soleil.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <span class="ms-1">(18 avis)</span>
+                </div>
+                <a href="#" class="btn btn-sm btn-outline-primary">Voir l'offre</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3 - Honeymoon -->
+        <div class="col-md-4" id="honeymoon">
+          <div class="card package-card">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="package-img" alt="Voyage de Noces">
+              <div class="price-tag">À partir de 12000 DH</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Voyage de Noces Royal</h5>
+              <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>10 jours / 9 nuits</p>
+              <p class="card-text">Séjour romantique à Marrakech et Agadir avec chambre de luxe, spa en couple et dîners privés.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <span class="ms-1">(32 avis)</span>
+                </div>
+                <a href="#" class="btn btn-sm btn-outline-primary">Voir l'offre</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <!-- Package 4 -->
+        <div class="col-md-4">
+          <div class="card package-card">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1538964173425-93884d739596?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="package-img" alt="Chefchaouen">
+              <div class="price-tag">À partir de 2800 DH</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Escapade Bleue à Chefchaouen</h5>
+              <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>3 jours / 2 nuits</p>
+              <p class="card-text">Découverte de la ville bleue nichée dans les montagnes du Rif avec randonnée et visite des cascades d'Akchour.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <span class="ms-1">(15 avis)</span>
+                </div>
+                <a href="#" class="btn btn-sm btn-outline-primary">Voir l'offre</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 5 -->
+        <div class="col-md-4">
+          <div class="card package-card">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1540202403-828727dadb3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="package-img" alt="Agadir">
+              <div class="price-tag">À partir de 3200 DH</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Détente à Agadir</h5>
+              <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>5 jours / 4 nuits</p>
+              <p class="card-text">Séjour détente dans un hôtel 4* face à la plage avec accès illimité au spa et aux activités nautiques.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star-half-alt text-warning"></i>
+                  <span class="ms-1">(27 avis)</span>
+                </div>
+                <a href="#" class="btn btn-sm btn-outline-primary">Voir l'offre</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 6 -->
+        <div class="col-md-4">
+          <div class="card package-card">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="package-img" alt="Montagnes">
+              <div class="price-tag">À partir de 4000 DH</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Randonnée dans l'Atlas</h5>
+              <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>4 jours / 3 nuits</p>
+              <p class="card-text">Expédition guidée dans le Haut Atlas avec nuit en refuge et ascension du Toubkal, le plus haut sommet d'Afrique du Nord.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <span class="ms-1">(21 avis)</span>
+                </div>
+                <a href="#" class="btn btn-sm btn-outline-primary">Voir l'offre</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <button class="btn btn-outline-primary">Voir plus d'offres</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <h3>Inscrivez-vous à notre newsletter</h3>
+          <p class="text-muted mb-4">Recevez nos meilleures offres et actualités directement dans votre boîte mail</p>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Votre adresse email">
+            <button class="btn btn-primary" type="button">S'inscrire</button>
+          </div>
+          <small class="text-muted">En vous inscrivant, vous acceptez notre politique de confidentialité.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Dour Maroc Voyages</h5>
+          <p>Votre partenaire de confiance pour des voyages inoubliables au Maroc et au-delà.</p>
+          <div class="social-links">
+            <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h6>Liens Rapides</h6>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white-50">Accueil</a></li>
+            <li><a href="packages.html" class="text-white-50">Forfaits</a></li>
+            <li><a href="offres-speciales.html" class="text-white-50">Offres Spéciales</a></li>
+            <li><a href="about.html" class="text-white-50">À propos</a></li>
+            <li><a href="contact.html" class="text-white-50">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6>Contact</h6>
+          <ul class="list-unstyled text-white-50">
+            <li><i class="fas fa-map-marker-alt me-2"></i>123 Avenue Mohammed V, Casablanca</li>
+            <li><i class="fas fa-phone me-2"></i>+212 5XX-XXXXXX</li>
+            <li><i class="fas fa-envelope me-2"></i>contact@dourmaroc.ma</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6>Moyens de Paiement</h6>
+          <div class="payment-methods">
+            <i class="fab fa-cc-visa fa-2x me-2"></i>
+            <i class="fab fa-cc-mastercard fa-2x me-2"></i>
+            <i class="fas fa-credit-card fa-2x me-2"></i>
+          </div>
+          <div class="mt-3">
+            <img src="https://www.visitmorocco.com/sites/default/files/2020-03/logo-officiel-maroc-tourisme.png" alt="Office National Marocain du Tourisme" style="max-width: 100px; filter: brightness(0) invert(1);">
+          </div>
+        </div>
+      </div>
+      <hr class="my-4 bg-secondary">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0 small">© 2025 Dour Maroc Voyages. Tous droits réservés.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-white-50 small me-3">Conditions générales</a>
+          <a href="#" class="text-white-50 small me-3">Politique de confidentialité</a>
+          <a href="#" class="text-white-50 small">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
