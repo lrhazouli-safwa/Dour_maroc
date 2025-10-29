@@ -1,4 +1,4 @@
-name: Déploiement Windows GitHub Pages
+name: Déploiement Windows Dour Maroc
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  build-and-deploy:
     runs-on: windows-latest
 
     steps:
@@ -18,19 +18,28 @@ jobs:
           git config user.name "lrhazouli-safwa"
           git config user.email "2005071100217@cmc.ma"
 
-      - name: 🧪 Test (simple check)
+      - name: 🧪 Test du projet
+        shell: powershell
         run: |
-          echo "Test du projet..."
-          dir ./html
+          Write-Host "Vérification du dossier html..."
+          if (Test-Path -Path "./html") {
+              Write-Host "Dossier html trouvé !"
+              Get-ChildItem ./html
+          } else {
+              Write-Error "Dossier html manquant !"
+              exit 1
+          }
 
-      - name: 🏗️ Build (préparation)
+      - name: 🏗️ Build du projet (simulé)
+        shell: powershell
         run: |
-          echo "Build du projet (PHP/CSS/JS)..."
-          mkdir build
-          xcopy /E /I html\* build\
-          
-      - name: 🚀 Déployer sur GitHub Pages
-        uses: peaceiris/actions-gh-pages@v7
+          Write-Host "Build du projet PHP/CSS/JS..."
+          # Ici, tu peux ajouter des étapes de compilation si nécessaire
+
+      - name: 🚀 Déploiement sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./html
+          force_orphan: true
+          keep_files: false
