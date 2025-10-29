@@ -1,34 +1,30 @@
+name: Déploiement Windows Dour Maroc
+
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
+
 jobs:
-  build:                # Nom du job
-    runs-on: ubuntu-latest  # Machine virtuelle
-    steps:                # Étapes du job
-      - name: Cloner le dépôt
+  deploy:
+    runs-on: windows-latest
+
+    steps:
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
-      - name: Installer Node.js
-        uses: actions/setup-node@v4
+      - name: ⚙️ Configurer Git
+        run: |
+          git config user.name "lrhazouli-safwa"
+          git config user.email "2005071100217@cmc.ma"
+
+      - name: 🏗️ Build & déploiement direct
+        run: |
+          echo "Déploiement direct du dossier html..."
+
+      - name: 🚀 Déployer sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          node-version: '18'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./html
 
-      - name: Installer les dépendances
-        run: npm install
-
-  test:
-    runs-on: ubuntu-latest
-    needs: build          # Ce job s'exécute après "build"
-    steps:
-      - uses: actions/checkout@v4
-      - run: npm test
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test           # Ce job s'exécute après "test"
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-      - run: echo "Déploiement de l'application"
