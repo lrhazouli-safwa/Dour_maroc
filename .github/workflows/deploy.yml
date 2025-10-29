@@ -1,0 +1,38 @@
+name: 🚀 Déploiement du site Dour Maroc
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: 📦 Installer les dépendances (si besoin)
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          else
+            echo "Aucune dépendance Node à installer"
+          fi
+
+      - name: 🧱 Construire le projet
+        run: |
+          mkdir -p dist
+          cp -r * dist/ || true
+
+      - name: 🚀 Déployer sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
