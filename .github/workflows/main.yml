@@ -18,13 +18,21 @@ jobs:
           git config user.name "lrhazouli-safwa"
           git config user.email "2005071100217@cmc.ma"
 
-      - name: 🏗️ Build & déploiement direct
+      - name: 🧪 Vérification rapide
         run: |
-          echo "Déploiement direct du dossier html..."
+          echo "Vérification du dossier html..."
+          if exist html (
+            echo Dossier html trouvé !
+            dir html
+          ) else (
+            echo Dossier html manquant !
+            exit 1
+          )
 
       - name: 🚀 Déployer sur GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./html
-
+          force_orphan: true
+          keep_files: false
