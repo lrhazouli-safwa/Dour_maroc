@@ -1,0 +1,40 @@
+name: Déploiement Windows GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Déclenche le workflow à chaque push sur main
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+
+    steps:
+      # 1️⃣ Récupérer le code
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Configurer Git
+      - name: ⚙️ Configurer Git
+        run: |
+          git config user.name "lrhazouli-safwa"
+          git config user.email "2005071100217@cmc.ma"
+
+      # 3️⃣ Test simple
+      - name: ✅ Vérifier que tous les fichiers existent
+        run: |
+          if exist index.html (echo "index.html trouvé") else (echo "index.html manquant" & exit 1)
+          if exist style.css (echo "style.css trouvé") else (echo "style.css manquant" & exit 1)
+
+      # 4️⃣ Build simulé
+      - name: 🏗 Build simulé
+        run: |
+          echo "Build simulé pour site PHP/CSS/JS"
+          echo "Aucune compilation nécessaire"
+
+      # 5️⃣ Déployer sur GitHub Pages
+      - name: 🚀 Déployer sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v7
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./html  # chemin vers ton site
