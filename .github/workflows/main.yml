@@ -19,15 +19,16 @@ jobs:
           git config user.email "2005071100217@cmc.ma"
 
       - name: 🧪 Vérification rapide
+        shell: powershell
         run: |
-          echo "Vérification du dossier html..."
-          if exist html (
-            echo Dossier html trouvé !
-            dir html
-          ) else (
-            echo Dossier html manquant !
-            exit 1
-          )
+          Write-Host "Vérification du dossier html..."
+          if (Test-Path -Path "./html") {
+              Write-Host "Dossier html trouvé !"
+              Get-ChildItem ./html
+          } else {
+              Write-Error "Dossier html manquant !"
+              exit 1
+          }
 
       - name: 🚀 Déployer sur GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
